@@ -13,11 +13,11 @@ import org.apache.ibatis.session.SqlSession;
 public class UserService {
     private static int createUserViaXml(){// via 通过\ [ˈvaɪə，ˈviːə]
         try(SqlSession sqlSession = MyBatisSession.getSqlSession(true)){
-            return sqlSession.insert("demo.mapper.UserMapper.creat",new User(null, "Jerry1", "123"));
+            return sqlSession.insert("demo.mapper.UserMapper.create",new User(null, "Jerry1", "123"));
         }
     }
 
-    private static int creatUser(){
+    private static int createUser(){
         try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
             return userMapper.create(new User(null, "Jerry2", "123"));
@@ -25,7 +25,7 @@ public class UserService {
     }
 
     public static void main(String[] args) {
-        System.out.println(createUserViaXml());
-//        System.out.println(creatUser());
+//        System.out.println(createUserViaXml());
+        System.out.println(createUser());
     }
 }
