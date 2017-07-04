@@ -20,10 +20,11 @@ public class JdbcTest {
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1,username);
         preparedStatement.setString(2,password);
+
         ResultSet resultSet = preparedStatement.executeQuery();
 
-        resultSet.next();
-        System.out.println(resultSet);
+        preparedStatement.close();
+        connection.close();
 
     }
 }
