@@ -4,5 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper>
-    <insert id=""
+    <insert id="creat" parameterType="demo.model.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO db_test.user VALUE (NULL ,#{username},#{password})
+    </insert>
 </mapper>
