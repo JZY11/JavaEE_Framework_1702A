@@ -16,12 +16,13 @@ public class JdbcTest {
         String username = "tom";
         String password = "123";
 
-        String sql = "INSERT INTO db_test.user VALUE(null,?,?)";
+        String sql = "INSERT INTO db_test.user VALUE(NULL,?,?)";
+
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1,username);
         preparedStatement.setString(2,password);
 
-        ResultSet resultSet = preparedStatement.executeQuery();
+        preparedStatement.executeUpdate();
 
         preparedStatement.close();
         connection.close();

@@ -25,7 +25,7 @@ public class UserService {
     }
 
     public static void main(String[] args) {
-//        System.out.println(createUserViaXml());
-        System.out.println(creatUser());
+        System.out.println(createUserViaXml());
+//        System.out.println(creatUser());
     }
 }
