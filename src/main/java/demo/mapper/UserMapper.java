@@ -1,4 +1,4 @@
-package demo.model.mapper;
+package demo.mapper;
 
 import demo.model.User;
 
