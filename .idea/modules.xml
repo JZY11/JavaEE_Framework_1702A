@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaEE_Framework_1702A.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaEE_Framework_1702A.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaEE_Framework_1702A_main.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaEE_Framework_1702A_main.iml" group="JavaEE_Framework_1702A" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaEE_Framework_1702A_test.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaEE_Framework_1702A_test.iml" group="JavaEE_Framework_1702A" />
+    </modules>
+  </component>
+</project>
