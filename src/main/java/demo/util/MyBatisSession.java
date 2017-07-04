@@ -29,4 +29,12 @@ public class MyBatisSession {// singleton class 单例模式
     public static SqlSession getSqlSession(boolean autoCommit) {
         return getSqlSessionFactory().openSession(autoCommit);
     }
+
+    //下面的示例就是一个确保 SqlSession 关闭的标准模式
+//    SqlSession sqlSession = sqlSessionFactory.openSession();
+//    try{
+//        //do work
+//    }finally{
+//        sqlSession.close();
+//    }
 }

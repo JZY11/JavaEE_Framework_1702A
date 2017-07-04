@@ -11,13 +11,16 @@ import org.apache.ibatis.session.SqlSession;
  * JavaEE_Framework_1702A.
  */
 public class UserService {
-    private static int createUserViaXml(){// via 通过\ [ˈvaɪə，ˈviːə]
-        try(SqlSession sqlSession = MyBatisSession.getSqlSession(true)){
-            return sqlSession.insert("demo.mapper.UserMapper.create",new User(null, "Jerry1", "123"));
+    // 1.
+    private static int createUserViaXml() {// via 通过\ [ˈvaɪə，ˈviːə]
+        try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
+            return sqlSession.insert("demo.mapper.UserMapper.create", new User(null, "Jerry1", "123"));
         }
     }
 
-    private static int createUser(){
+    // 2.
+    private static int createUser() {
+        //接口SqlSession直接继承接口Closeable间接继承接口AutoCloseable
         try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
             UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
             return userMapper.create(new User(null, "Jerry2", "123"));
