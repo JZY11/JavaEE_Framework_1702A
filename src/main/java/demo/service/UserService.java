@@ -11,14 +11,27 @@ import org.apache.ibatis.session.SqlSession;
  * JavaEE_Framework_1702A.
  */
 public class UserService {
-    // 1.
+    // 1.通过配置文件
     private static int createUserViaXml() {// via 通过\ [ˈvaɪə，ˈviːə]
         try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
             return sqlSession.insert("demo.mapper.UserMapper.create", new User(null, "Jerry1", "123"));
         }
     }
 
-    // 2.
+    private static int updateUser(){
+        try(SqlSession sqlSession = MyBatisSession.getSqlSession(true)){
+            return sqlSession.update("user.update",new User(1,"tester","tom"));
+        }
+    }
+
+    private static int deleteUser() {
+        try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
+            return sqlSession.delete("user.delete");
+        }
+    }
+
+
+    // 2.通过接口
     private static int createUser() {
         //接口SqlSession直接继承接口Closeable间接继承接口AutoCloseable
         try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
@@ -29,6 +42,8 @@ public class UserService {
 
     public static void main(String[] args) {
 //        System.out.println(createUserViaXml());
-        System.out.println(createUser());
+//        System.out.println(createUser());
+//        System.out.println(updateUser());
+        System.out.println(deleteUser());
     }
 }
