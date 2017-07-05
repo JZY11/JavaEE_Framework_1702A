@@ -40,6 +40,12 @@ public class UserService {
         }
     }
 
+    private static User queryById(){
+        try(SqlSession sqlSession = MyBatisSession.getSqlSession(false)){
+            return sqlSession.selectOne("user.queryById",3);
+        }
+    }
+
     // 2.通过接口
     private static int createUser() {
         //接口SqlSession直接继承接口Closeable间接继承接口AutoCloseable
@@ -51,13 +57,20 @@ public class UserService {
 
     public static void main(String[] args) {
 //        System.out.println(createUserViaXml());
+
 //        System.out.println(createUser());
+
 //        System.out.println(updateUser());
+
 //        System.out.println(deleteUser());
+
 //        System.out.println(queryAll());
-        List<User> users = queryAll();
-        for (User user : users) {
-            System.out.println(user);
-        }
+
+//        List<User> users = queryAll();
+//        for (User user : users) {
+//            System.out.println(user);
+//    }
+//
+        System.out.println(queryById());
     }
 }

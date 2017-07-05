@@ -19,7 +19,7 @@
         WHERE id = #{id}
     </delete>
 
-    <select id="queryAll" resultType="demo.model.User">
+    <select id="queryAll" resultType="demo.model.User"><!--查询返回一结果集-->
         SELECT *
         FROM db_test.user;
     </select>
