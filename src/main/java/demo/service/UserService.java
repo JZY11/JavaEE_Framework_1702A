@@ -13,7 +13,7 @@ import java.util.List;
  * JavaEE_Framework_1702A.
  */
 public class UserService {
-    // 1.通过配置文件
+    // 1.通过配置文件 与namespace属性值无关，名字可随意起
     private static int createUserViaXml() {// via 通过\ [ˈvaɪə，ˈviːə]
         try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
             return sqlSession.insert("user.create", new User(null, "Jerry1", "123"));
@@ -22,12 +22,14 @@ public class UserService {
 
     private static int updateUser(){
         try(SqlSession sqlSession = MyBatisSession.getSqlSession(true)){
-            return sqlSession.update("user.update",new User(1,"tester","123"));
+            //返回 sql操作
+            return sqlSession.update("user.update", new User(1, "tester", "test"));
+
         }
     }
 
     private static int deleteUser() {
-        try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
+        try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {// 建立一次数据库连接
             return sqlSession.delete("user.delete");
         }
     }
@@ -52,6 +54,10 @@ public class UserService {
 //        System.out.println(createUser());
 //        System.out.println(updateUser());
 //        System.out.println(deleteUser());
-        System.out.println(queryAll());
+//        System.out.println(queryAll());
+        List<User> users = queryAll();
+        for (User user : users) {
+            System.out.println(user);
+        }
     }
 }

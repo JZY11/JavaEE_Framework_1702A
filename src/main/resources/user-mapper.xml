@@ -8,13 +8,13 @@
     INSERT INTO db_test.user VALUE (NULL ,#{username},#{password})
     </insert>
 
-    <update id="update" parameterType="demo.model.User">
+    <update id="update" parameterType="demo.model.User"><!--参数类型可以为字符串，但id的值必须为定值-->
         UPDATE db_test.user
         SET username = #{username}, password = #{password}
         WHERE id = #{id}
     </update>
 
-    <delete id="delete" parameterType="int">
+    <delete id="delete" parameterType="int"><!--id可直接设置为指定值，而不是设置为未定参数#{id}-->
         DELETE FROM db_test.user
         WHERE id = #{id}
     </delete>
