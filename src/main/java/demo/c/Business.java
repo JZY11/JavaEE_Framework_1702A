@@ -1,7 +1,5 @@
 package demo.c;
 
-import demo.b.DeviceWriter;
-
 /**
  * Created by zhenya.1291813139.com
  * on 2017/7/6.
@@ -10,9 +8,14 @@ import demo.b.DeviceWriter;
  * 解耦合 *****
  */
 public class Business {
-    private demo.b.DeviceWriter deviceWriter;
+    private DeviceWriter deviceWriter;
 
-    public Business(DeviceWriter deviceWriter) {
+//    public Business(DeviceWriter deviceWriter) {
+//        this.deviceWriter = deviceWriter;
+//    }
+
+
+    public void setDeviceWriter(DeviceWriter deviceWriter) {
         this.deviceWriter = deviceWriter;
     }
 
