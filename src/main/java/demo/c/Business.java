@@ -10,14 +10,14 @@ package demo.c;
 public class Business {
     private DeviceWriter deviceWriter;
 
-//    public Business(DeviceWriter deviceWriter) {
-//        this.deviceWriter = deviceWriter;
-//    }
-
-
-    public void setDeviceWriter(DeviceWriter deviceWriter) {
+    public Business(DeviceWriter deviceWriter) {
         this.deviceWriter = deviceWriter;
     }
+
+
+//    public void setDeviceWriter(DeviceWriter deviceWriter) {
+//        this.deviceWriter = deviceWriter;
+//    }
 
     public void write() {
         deviceWriter.writerToDevice();

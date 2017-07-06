@@ -3,10 +3,17 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--配置底层实现类-->
     <bean id="floppyWriter" class="demo.c.FloppyWriter"/>
     <bean id="usbWriter" class="demo.c.UsbWriter"/>
 
+    <!--配置高级实现类-->
     <bean id="business" class="demo.c.Business">
-        <property name="deviceWriter" ref="usbWriter"/>
+        <!--用构造器(constructor)则高层应用类中就必须要有构造方法-->
+        <constructor-arg ref="floppyWriter"/>
+
+
+        <!--用属性(property)则高层应用类里必须要有  Set方法  -->
+        <!--<property name="deviceWriter" ref="usbWriter"/>-->
     </bean>
 </beans>
