@@ -1,5 +1,7 @@
 package demo.model;
 
+import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil;
+
 import java.io.Serializable;
 
 /**
@@ -45,6 +47,7 @@ public class User implements Serializable {
 
     public User() {
     }
+
 
     @Override
     public String toString() {

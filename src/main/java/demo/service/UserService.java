@@ -35,7 +35,7 @@ public class UserService {
     }
 
     private static List<User> queryAll() {
-        try (SqlSession sqlSession = MyBatisSession.getSqlSession(false)) {
+        try (SqlSession sqlSession = MyBatisSession.getSqlSession(false)) {//查询与事务无关，true false 都可以
             return sqlSession.selectList("user.queryAll");
         }
     }
@@ -64,13 +64,13 @@ public class UserService {
 
 //        System.out.println(deleteUser());
 
-//        System.out.println(queryAll());
+        System.out.println(queryAll());
 
 //        List<User> users = queryAll();
 //        for (User user : users) {
-//            System.out.println(user);
+//            System.out.println(user.);
 //    }
 //
-        System.out.println(queryById());
+//        System.out.println(queryById());
     }
 }
