@@ -7,7 +7,7 @@ package demo.c;
  * 高层应用类 和 底层实现类的 松散耦合
  * 解耦合 *****
  */
-public class Business {
+public class Business {// 不能体现出floppyWriter和usbWriter中的任何信息，否则就又成了强耦合
     private DeviceWriter deviceWriter;
 
     public Business(DeviceWriter deviceWriter) {

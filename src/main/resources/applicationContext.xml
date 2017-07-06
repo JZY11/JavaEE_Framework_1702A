@@ -14,6 +14,6 @@
 
 
         <!--用属性(property)则高层应用类里必须要有  Set方法  -->
-        <!--<property name="deviceWriter" ref="usbWriter"/>-->
+        <!--<property name="deviceWriter ->域" ref="usbWriter"/>-->
     </bean>
 </beans>
