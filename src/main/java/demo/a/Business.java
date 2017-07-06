@@ -19,7 +19,7 @@ public class Business {
     }
 
     public void write() {
-        floppyWriter.writeToFloppy();
+        floppyWriter.writerToFloppy();
 //        usbWriter.writeToUsb();
     }
 }
