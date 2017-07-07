@@ -1,9 +1,6 @@
 package demo.service;
 
-import demo.c.Business;
 import demo.model.User;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
@@ -11,10 +8,15 @@ import java.util.List;
  * Created by zhenya.1291813139.com
  * on 2017/7/4.
  * JavaEE_Framework_1702A.
+ * UserService 和 MyBatis / JDBC 是松散耦合
  */
 public class UserService {
 
     private  InterfaceTest interfaceTest;
+
+    public void setInterfaceTest(InterfaceTest interfaceTest) {
+        this.interfaceTest = interfaceTest;
+    }
 
     private int createUser(User user) {
         return interfaceTest.createUser(user);
@@ -78,7 +80,7 @@ public class UserService {
 //        }
 //    }
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
 //        System.out.println(createUserViaXml());
 
 //        System.out.println(createUser());
@@ -96,10 +98,5 @@ public class UserService {
 //
 //        System.out.println(queryById());
 
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        // 不是采用new的方式  而是从容器中获取bean来获取实例对象
-        Business business = (Business) applicationContext.getBean("userService");
-        business.write();
-
-    }
+//    }
 }

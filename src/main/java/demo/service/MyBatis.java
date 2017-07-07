@@ -14,30 +14,38 @@ import java.util.List;
 public class MyBatis implements InterfaceTest {
 
     @Override
-    public int createUser() {
+    public int createUser(User user) {
         try(SqlSession sqlSession = MyBatisSession.getSqlSession(true)){
 
-        return sqls;
+        return sqlSession.insert("user.creat");
         }
     }
 
     @Override
-    public int updateUser() {
-        return 0;
+    public int updateUser(User user) {
+        try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
+            return sqlSession.update("user.update", user);
+        }
     }
 
     @Override
-    public int deleteUser() {
-        return 0;
+    public int deleteUser(int id) {
+        try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
+            return sqlSession.delete("user.delete", id);
+        }
     }
 
     @Override
     public List<User> queryAll() {
-        return null;
+        try (SqlSession sqlSession = MyBatisSession.getSqlSession(false)) {
+            return sqlSession.selectList("user.queryAll");
+        }
     }
 
     @Override
-    public User queryById() {
-        return null;
+    public User queryById(int id) {
+        try (SqlSession sqlSession = MyBatisSession.getSqlSession(false)) {
+            return sqlSession.selectOne("user.queryById", id);
+        }
     }
 }
