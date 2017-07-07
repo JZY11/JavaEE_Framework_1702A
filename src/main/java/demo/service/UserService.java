@@ -1,6 +1,9 @@
 package demo.service;
 
+import demo.c.Business;
 import demo.model.User;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
@@ -13,10 +16,10 @@ public class UserService {
 
     private  InterfaceTest interfaceTest;
 
-    private int createUser() {
+    private int createUser(User user) {
         return interfaceTest.createUser();
     }
-    private int updateUser(){
+    private int updateUser(User user){
         return interfaceTest.updateUser();
     }
     private int deleteUser() {
@@ -92,5 +95,11 @@ public class UserService {
 //    }
 //
 //        System.out.println(queryById());
+
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        // 不是采用new的方式  而是从容器中获取bean来获取实例对象
+        Business business = (Business) applicationContext.getBean("userService");
+        business.write();
+
     }
 }

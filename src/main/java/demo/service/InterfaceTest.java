@@ -10,10 +10,10 @@ import java.util.List;
  * JavaEE_Framework_1702A.
  */
 public interface InterfaceTest {
-    int createUser();
-    int updateUser();
-    int deleteUser();
+    int createUser(User user);
+    int updateUser(User user);
+    int deleteUser(int id);
 
     List<User> queryAll();
-    User queryById();
+    User queryById(int id);
 }
