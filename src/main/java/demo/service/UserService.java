@@ -18,19 +18,19 @@ public class UserService {
         this.interfaceTest = interfaceTest;
     }
 
-    private int createUser(User user) {
+    public int createUser(User user) {
         return interfaceTest.createUser(user);
     }
-    private int updateUser(User user){
+    public int updateUser(User user){
         return interfaceTest.updateUser(user);
     }
-    private int deleteUser(int id) {
+    public int deleteUser(int id) {
         return interfaceTest.deleteUser(id);
     }
-    private List<User> queryAll() {
+    public List<User> queryAll() {
         return interfaceTest.queryAll();
     }
-    private User queryById(int id){
+    public User queryById(int id){
         return interfaceTest.queryById(id);
     }
 
