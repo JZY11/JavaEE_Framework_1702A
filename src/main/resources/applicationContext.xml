@@ -16,4 +16,18 @@
         <!--用属性(property)则高层应用类里必须要有  Set方法  -->
         <!--<property name="deviceWriter ->域" ref="usbWriter"/>-->
     </bean>
+
+    <bean id="string" class="java.lang.String">
+        <constructor-arg value="Tom"/>
+    </bean>
+
+    <bean id="stringBuffer" class="java.lang.StringBuffer">
+        <constructor-arg value="Jerry"/>
+    </bean>
+
+    <bean id="hello" class="demo.d.Hello">
+        <!--<property name="name" value="Tom"/>-->
+        <!--<property name="name" ref="string"/>-->
+        <property name="name" ref="stringBuffer"/>
+    </bean>
 </beans>
