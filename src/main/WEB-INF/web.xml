@@ -20,6 +20,6 @@
 
     <context-param><!--指定applicationContext.xml位置-->
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:applicationContext.xml</param-value>
+        <param-value>classpath:test/beans.xml</param-value>
     </context-param>
 </web-app>
