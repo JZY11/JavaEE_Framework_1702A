@@ -1,6 +1,8 @@
 package demo.controller;
 
 import demo.model.User;
+import demo.util.MyBatisSession;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,12 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * JavaEE_Framework_1702A.
  */
 @Controller
-@RequestMapping
+@RequestMapping("user")
 public class UserController {
     @RequestMapping("create")
-    private String create(User user){
-        //todo save user ...?
-        System.out.println("create: " + user);
+    private String create(User user) {
+        try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
+            sqlSession.insert("user.create",user);
+        }
+//        System.out.println("create: " + user);
         return "redirect:/default.jsp";
     }
 }

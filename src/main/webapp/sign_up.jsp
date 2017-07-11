@@ -8,12 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>sign up page</title>
 </head>
 <body>
-<form action="user/create">
-    <input type="text" name="username" placeholder="用户名">
-    <input type="password" name="password" placeholder="密码">
+<form action="user/create" method="post">
+    <input type="text" name="username" placeholder="USERNAME"><br>
+    <input type="password" name="password" placeholder="PASSWORD"><br>
     <input type="submit" value="SIGN UP">
 </form>
 </body>

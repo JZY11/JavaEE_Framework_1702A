@@ -4,6 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration><!--根元素标记-->
     <properties resource="jdbc.properties"/>
+    <typeAliases>
+        <package name="demo.model"/>
+    </typeAliases>
     <environments default="dev">
         <environment id="dev">
             <transactionManager type="JDBC"/>
