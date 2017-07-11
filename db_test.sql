@@ -5,7 +5,7 @@ CREATE DATABASE db_test;
 DROP TABLE IF EXISTS db_test.user;
 CREATE TABLE db_test.user (
  id       INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
- username VARCHAR(255),
+ username VARCHAR(255) UNIQUE ,
  password VARCHAR(255)
 );
 

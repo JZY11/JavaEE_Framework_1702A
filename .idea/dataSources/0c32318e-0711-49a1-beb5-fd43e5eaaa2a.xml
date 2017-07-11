@@ -293,9 +293,17 @@
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="84" parent="32" name="PRIMARY">
+    <index id="84" parent="32" name="username">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="85" parent="32" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
+    </key>
+    <key id="86" parent="32" name="username">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>username</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>

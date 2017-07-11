@@ -22,4 +22,15 @@ public class UserController {
 //        System.out.println("create: " + user);
         return "redirect:/default.jsp";
     }
+
+    @RequestMapping("signIn")
+    private String signIn(User user){
+        try(SqlSession sqlSession = MyBatisSession.getSqlSession(false)){
+            user = sqlSession.selectOne("user.signIn",user);
+            if (user != null) {
+                return "redirect:/index.jsp";
+            }
+        }
+        return "/default.jsp";//   /代表G目录
+    }
 }
