@@ -15,7 +15,7 @@ public class UserController {
     @RequestMapping("create")
     private String create(User user){
         //todo save user ...?
-        System.out.println("create....");
-        return "redirect:/index.jsp";
+        System.out.println("create: " + user);
+        return "redirect:/default.jsp";
     }
 }

@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>Default.jsp</title>
   </head>
   <body>
-  $END$
+  <a href="sign_up.jsp"></a>
   </body>
 </html>
