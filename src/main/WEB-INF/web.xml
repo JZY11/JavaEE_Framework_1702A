@@ -26,4 +26,6 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:test/beans.xml</param-value>
     </context-param>
+
+    <!-- CoC Convention over Configuration 约定 优于 配置-->
 </web-app>

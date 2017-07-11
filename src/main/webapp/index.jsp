@@ -12,5 +12,6 @@
 </head>
 <body>
 <h1>主页</h1>
+${sessionScope.user.username}
 </body>
 </html>
