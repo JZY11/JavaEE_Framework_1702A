@@ -17,6 +17,7 @@
     <input type="password" name="password" placeholder="PASSWORD"><br>
     <input type="submit" value="SIGN IN">
   </form>
+  <p>${requestScope.message}</p>
   <a href="sign_up.jsp">SIGN UP</a>
   </body>
 </html>
