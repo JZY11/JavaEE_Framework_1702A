@@ -8,9 +8,10 @@ import demo.model.User;
  * JavaEE_Framework_1702A.
  */
 public interface UserDao {
-    void creat(User user);
+    void create(User user);
 
     User signIn(User user);
+
 
 
 }
