@@ -16,29 +16,29 @@
     </select>
 
 
-    <update id="update" parameterType="user"><!--参数类型可以为字符串，但id的值必须为定值-->
-        UPDATE db_test.user
-        SET username = #{username}, password = #{password}
-        WHERE id = #{id}
-    </update>
+    <!--<update id="update" parameterType="user">&lt;!&ndash;参数类型可以为字符串，但id的值必须为定值&ndash;&gt;-->
+        <!--UPDATE db_test.user-->
+        <!--SET username = #{username}, password = #{password}-->
+        <!--WHERE id = #{id}-->
+    <!--</update>-->
 
-    <delete id="delete" parameterType="int"><!--id可直接设置为指定值，而不是设置为未定参数#{id}-->
-        DELETE FROM db_test.user
-        WHERE id = #{id}
-    </delete>
+    <!--<delete id="delete" parameterType="int">&lt;!&ndash;id可直接设置为指定值，而不是设置为未定参数#{id}&ndash;&gt;-->
+        <!--DELETE FROM db_test.user-->
+        <!--WHERE id = #{id}-->
+    <!--</delete>-->
 
-    <select id="queryAll" resultType="user"><!--查询返回一结果集-->
-        SELECT *
-        FROM db_test.user;
-    </select>
-    <select id="queryById" parameterType="int" resultType="user">
-        SELECT *
-        FROM db_test.user
-        WHERE id = #{id};
-    </select>
+    <!--<select id="queryAll" resultType="user">&lt;!&ndash;查询返回一结果集&ndash;&gt;-->
+        <!--SELECT *-->
+        <!--FROM db_test.user;-->
+    <!--</select>-->
+    <!--<select id="queryById" parameterType="int" resultType="user">-->
+        <!--SELECT *-->
+        <!--FROM db_test.user-->
+        <!--WHERE id = #{id};-->
+    <!--</select>-->
 
-    <select id="signIn" parameterType="user" resultType="user">
+    <!--<select id="signIn" parameterType="user" resultType="user">-->
 
-    </select>
+    <!--</select>-->
 
 </mapper>
