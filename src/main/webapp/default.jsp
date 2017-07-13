@@ -7,17 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>首页</title>
-  </head>
-  <body>
-  <h1>首页</h1>
-  <form action="/user/signIn" method="post">
-    <input type="text" name="username" placeholder="USERNAME"><br>
-    <input type="password" name="password" placeholder="PASSWORD"><br>
-    <input type="submit" value="SIGN IN">
-  </form>
-  <p>${requestScope.message}</p>
-  <a href="sign_up.jsp">SIGN UP</a>
-  </body>
+<head>
+  <title>default page</title>
+</head>
+<body>
+<h1>首页</h1>
+<form action="/user/signIn" method="post">
+  <input type="text" name="username" placeholder="USERNAME"><br>
+  <input type="password" name="password" placeholder="PASSWORD"><br>
+  <input type="submit" value="SIGN IN">
+</form>
+<p>${requestScope.message}</p>
+<a href="sign_up.jsp">SIGN UP</a>
+</body>
 </html>

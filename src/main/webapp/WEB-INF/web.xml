@@ -8,12 +8,12 @@
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
 
-    <servlet><!--servlet注册-->
+    <servlet>
         <servlet-name>web</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     </servlet>
 
-    <servlet-mapping><!--servlet映射-->
+    <servlet-mapping>
         <servlet-name>web</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
@@ -22,9 +22,9 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    <context-param><!--指定applicationContext.xml位置-->
+    <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:test/beans.xml</param-value>
+        <param-value>classpath:applicationContext.xml</param-value>
     </context-param>
 
     <!-- CoC Convention over Configuration 约定 优于 配置-->
