@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+      http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <!--配置底层实现类-->
-    <!--<bean id="floppyWriter" class="demo.c.FloppyWriter"/>-->
-    <!--<bean id="usbWriter" class="demo.c.UsbWriter"/>-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
 
-    <!--&lt;!&ndash;配置高级实现类&ndash;&gt;-->
-    <!--<bean id="business" class="demo.c.Business">-->
-        <!--&lt;!&ndash;用构造器(constructor)则高层应用类中就必须要有构造方法&ndash;&gt;-->
-        <!--<constructor-arg ref="floppyWriter"/>-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc_driverClassName}"/>
+        <property name="url" value="${jdbc_url}"/>
+        <property name="username" value="${jdbc_username}"/>
+        <property name="password" value="${jdbc_password}"/>
+    </bean>
 
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <property name="typeAliasesPackage" value="demo.model"/>
+    </bean>
 
-        <!--&lt;!&ndash;用属性(property)则高层应用类里必须要有  Set方法  &ndash;&gt;-->
-        <!--&lt;!&ndash;<property name="deviceWriter ->域" ref="usbWriter"/>&ndash;&gt;-->
-    <!--</bean>-->
-
-    <!--<bean id="string" class="java.lang.String">-->
-        <!--<constructor-arg value="Tom"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="stringBuffer" class="java.lang.StringBuffer">-->
-        <!--<constructor-arg value="Jerry"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="hello" class="demo.d.Hello">-->
-        <!--&lt;!&ndash;<property name="name" value="Tom"/>&ndash;&gt;-->
-        <!--&lt;!&ndash;<property name="name" ref="string"/>&ndash;&gt;-->
-        <!--<property name="name" ref="stringBuffer"/>-->
-    <!--</bean>-->
-
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg ref="sqlSessionFactory"/>
+    </bean>
 </beans>
