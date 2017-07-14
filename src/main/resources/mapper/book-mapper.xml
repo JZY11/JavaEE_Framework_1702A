@@ -12,6 +12,25 @@
         SELECT * FROM db_test.book
     </select>
 
+    <select id="queryById" parameterType="int" resultType="book">
+        SELECT *
+        FROM db_test.book
+        WHERE id = #{id}
+    </select>
+
+    <update id="modify" parameterType="book">
+        UPDATE db_test.book
+        SET title  = #{title},
+        author = #{author},
+        date   = #{date},
+        price  = #{price}
+        WHERE id = #{id}
+    </update>
+    <delete id="remove" parameterType="int">
+        DELETE FROM db_test.book
+        WHERE id = #{id}
+    </delete>
+
     <!--<select id="signIn" parameterType="user" resultType="user">-->
         <!--SELECT *-->
         <!--FROM db_test.user-->

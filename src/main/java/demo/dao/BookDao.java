@@ -14,4 +14,10 @@ public interface BookDao {
     void create(Book book);
 
     List<Book> queryAll();
+
+    Book queryById(int id);
+
+    void modify(Book book);
+
+    void remove(int id);
 }

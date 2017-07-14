@@ -4,6 +4,7 @@ import demo.dao.BookDao;
 import demo.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -22,5 +23,11 @@ public class BookController extends BaseController {
     private String create(Book book){
         bookDao.create(book);
         return "redirect:/book/queryAll";
+    }
+
+    @RequestMapping()
+    private String queryById(@PathVariable int id){
+        session.setAttribute("book", bookDao.queryById(id));
+        return "redirect:/edit.jsp";
     }
 }
