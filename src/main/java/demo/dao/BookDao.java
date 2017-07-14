@@ -9,5 +9,5 @@ import demo.model.Book;
  */
 public interface BookDao {
 
-    void creat(Book book);
+    void create(Book book);
 }

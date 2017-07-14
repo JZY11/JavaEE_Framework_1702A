@@ -50,6 +50,9 @@ public class Book implements Serializable {
         return price;
     }
 
+    public Book() {
+    }
+
     public void setPrice(double price) {
         this.price = price;
     }
