@@ -8,11 +8,12 @@
     INSERT INTO db_test.book VALUE (NULL ,#{title},#{author},#{date},#{price})
     </insert>
 
-    <select id="queryAll" resultType="user">
-        SELECT * FROM db_test.book
+    <select id="queryAll" resultType="book">
+        SELECT *
+        FROM db_test.book;
     </select>
 
-    <select id="queryById" parameterType="int" resultType="book">
+    <select id="queryBookById" parameterType="int" resultType="book">
         SELECT *
         FROM db_test.book
         WHERE id = #{id}
