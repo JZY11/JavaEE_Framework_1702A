@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * on 2017/7/10.
  * JavaEE_Framework_1702A.
  */
+
+/*
+    userController依赖于抽象，而UserDaoImpl为接口 UserDao的唯一实现类，所以UserController依赖于UserDaoImpl
+
+ */
+
 @Controller
 @RequestMapping("user")
 public class UserController extends BaseController{

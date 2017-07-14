@@ -22,7 +22,7 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    <context-param><!--找到配置spring文件位置-->
+    <context-param><!--找到spring配置文件位置-->
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:applicationContext.xml</param-value>
     </context-param>

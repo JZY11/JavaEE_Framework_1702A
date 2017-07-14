@@ -13,6 +13,7 @@ import java.io.IOException;
  * JavaEE_Framework_1702A.
  */
 public class MyBatisSession {// singleton class 单例模式
+
     private static SqlSessionFactory sqlSessionFactory;
 
     private static SqlSessionFactory getSqlSessionFactory() {

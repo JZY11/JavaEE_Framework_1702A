@@ -22,6 +22,7 @@ public class UserDaoImpl implements UserDao {
     public void create(User user) {
 //        try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
         sqlSession.insert("user.create", user);
+        //"user.create" 为user-mapper.xml中的namespace + id 实质就是一个sql语句
 //        }
     }
 

@@ -33,7 +33,10 @@
         <property name="typeAliasesPackage" value="demo.model"/>
     </bean>
 
-    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg ref="sqlSessionFactory"/>
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"><!--sqlSession的模板类SqlSessionTemplate有3个重载方法-->
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
+
+    <!--sqlSessionFactory依赖于数据源(dataSource&dbcp),而sqlSession又依赖于sqlSessionFactory-->
+
 </beans>
