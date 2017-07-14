@@ -38,6 +38,12 @@ public class UserController extends BaseController{
         return "/default.jsp";
     }
 
+    @RequestMapping("signOut")
+    private String signOut() {
+        session.invalidate();
+        return "redirect:/default.jsp";
+    }
+
 
 
 
