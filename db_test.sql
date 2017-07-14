@@ -21,4 +21,9 @@ CREATE TABLE db_test.book (
 SELECT *
 FROM db_test.user;
 
+SELECT *
+FROM db_test.book;
+
 TRUNCATE db_test.user;
+
+TRUNCATE db_test.book
