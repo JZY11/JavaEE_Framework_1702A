@@ -25,9 +25,27 @@ public class BookController extends BaseController {
         return "redirect:/book/queryAll";
     }
 
+    @RequestMapping("queryAll")
+    private String queryAll() {
+        session.setAttribute("books", bookDao.queryAll());
+        return "redirect:/index.jsp";
+    }
+
     @RequestMapping()
-    private String queryById(@PathVariable int id){
-        session.setAttribute("book", bookDao.queryById(id));
+    private String queryBookById(@PathVariable int id){
+        session.setAttribute("book", bookDao.queryBookById(id));
         return "redirect:/edit.jsp";
+    }
+
+    @RequestMapping("modify")
+    private String modify(Book book) {
+        bookDao.modify(book);
+        return "redirect:/book/queryAll";
+    }
+
+    @RequestMapping("remove/{id}")
+    private String remove(@PathVariable int id) {
+        bookDao.remove(id);
+        return "redirect:/book/queryAll";
     }
 }
