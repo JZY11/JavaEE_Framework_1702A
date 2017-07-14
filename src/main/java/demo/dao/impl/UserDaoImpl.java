@@ -4,6 +4,7 @@ import demo.dao.UserDao;
 import demo.model.User;
 import demo.util.MyBatisSession;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -12,19 +13,22 @@ import org.springframework.stereotype.Repository;
  * JavaEE_Framework_1702A.
  */
 @Repository
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
+
+    @Autowired
+    private SqlSession sqlSession;
 
     @Override
     public void create(User user) {
-        try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
-            sqlSession.insert("user.create", user);
-        }
+//        try (SqlSession sqlSession = MyBatisSession.getSqlSession(true)) {
+        sqlSession.insert("user.create", user);
+//        }
     }
 
     @Override
     public User signIn(User user) {
-        try (SqlSession sqlSession = MyBatisSession.getSqlSession(false)) {
-            return sqlSession.selectOne("user.signIn", user);
-        }
+//        try (SqlSession sqlSession = MyBatisSession.getSqlSession(false)) {
+        return sqlSession.selectOne("user.signIn", user);
+//        }
     }
 }
