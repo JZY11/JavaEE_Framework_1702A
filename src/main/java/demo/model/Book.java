@@ -11,7 +11,7 @@ public class Book implements Serializable {
     private Integer id;
     private String title;
     private String author;
-    private String data;
+    private String date;
     private double price;
 
     public Integer getId() {
@@ -38,12 +38,12 @@ public class Book implements Serializable {
         this.author = author;
     }
 
-    public String getData() {
-        return data;
+    public String getDate() {
+        return date;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public double getPrice() {
@@ -57,11 +57,11 @@ public class Book implements Serializable {
         this.price = price;
     }
 
-    public Book(Integer id, String title, String author, String data, double price) {
+    public Book(Integer id, String title, String author, String date, double price) {
         this.id = id;
         this.title = title;
         this.author = author;
-        this.data = data;
+        this.date = date;
         this.price = price;
 
     }
@@ -72,7 +72,7 @@ public class Book implements Serializable {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
-                ", data='" + data + '\'' +
+                ", date='" + date + '\'' +
                 ", price=" + price +
                 '}';
     }

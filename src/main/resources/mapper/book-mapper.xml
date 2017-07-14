@@ -8,6 +8,9 @@
     INSERT INTO db_test.book VALUE (NULL ,#{title},#{author},#{date},#{price})
     </insert>
 
+    <select id="queryAll" resultType="user">
+        SELECT * FROM db_test.book
+    </select>
 
     <!--<select id="signIn" parameterType="user" resultType="user">-->
         <!--SELECT *-->

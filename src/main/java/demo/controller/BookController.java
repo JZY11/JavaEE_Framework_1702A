@@ -21,6 +21,6 @@ public class BookController extends BaseController {
     @RequestMapping("create")
     private String create(Book book){
         bookDao.create(book);
-        return "redirect:/index.jsp";
+        return "redirect:/book/queryAll";
     }
 }
