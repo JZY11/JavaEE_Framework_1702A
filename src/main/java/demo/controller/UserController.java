@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
  */
 
-@Controller
+@Controller//自动加入spring容器使其成为一个bean
 @RequestMapping("user")
 public class UserController extends BaseController{
 

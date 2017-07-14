@@ -15,6 +15,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserDaoImpl implements UserDao {
 
+    //UserDaoImpl依赖于SqlSession
+
     @Autowired
     private SqlSession sqlSession;
 

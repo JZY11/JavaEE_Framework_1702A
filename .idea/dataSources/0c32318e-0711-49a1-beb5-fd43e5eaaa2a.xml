@@ -293,21 +293,25 @@
       <Position>2</Position>
       <Comment>书名</Comment>
       <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
     <column id="84" parent="32" name="author">
       <Position>3</Position>
       <Comment>作者</Comment>
       <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
     <column id="85" parent="32" name="date">
       <Position>4</Position>
       <Comment>出版日期</Comment>
       <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
     </column>
     <column id="86" parent="32" name="price">
       <Position>5</Position>
       <Comment>定价</Comment>
       <DataType>decimal(10)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
     <key id="87" parent="32" name="PRIMARY">
       <ColNames>id</ColNames>

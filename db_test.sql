@@ -12,10 +12,10 @@ CREATE TABLE db_test.user (
 DROP TABLE IF EXISTS db_test.book;
 CREATE TABLE db_test.book (
  id       INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT 'ID PK',
- title VARCHAR(255) COMMENT '书名',
- author VARCHAR(255) COMMENT '作者',
- date DATE COMMENT '出版日期',
- price DECIMAL COMMENT '定价'
+ title VARCHAR(255) NOT NULL COMMENT '书名',
+ author VARCHAR(255) NOT NULL COMMENT '作者',
+ date DATE NOT NULL COMMENT '出版日期',
+ price DECIMAL NOT NULL COMMENT '定价'
 )COMMENT '图书表';
 
 SELECT *
