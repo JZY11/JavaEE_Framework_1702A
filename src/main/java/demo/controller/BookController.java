@@ -1,5 +1,6 @@
 package demo.controller;
 
+import demo.dao.BookDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,5 +15,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BookController extends BaseController {
 
     @Autowired
-    private
+    private BookDao bookDao;
 }
