@@ -4,6 +4,7 @@ import demo.dao.UserDao;
 import demo.model.User;
 import demo.util.MyBatisSession;
 import org.apache.ibatis.session.SqlSession;
+import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,13 +30,20 @@ public class UserController extends BaseController{
 
     @RequestMapping("create")
     private String create(User user) {
+
+        StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
+        user.setPassword(encryptor.encryptPassword(user.getPassword()));
+
         userDao.create(user);
         return "redirect:/default.jsp";
     }
 
-    @RequestMapping("query")
-    private String query(User user) {
-        user = userDao.query(user);
+    @RequestMapping("signIn")
+    private String signIn(User user) {
+        String plainPassword = user.getPassword();
+        user = userDao.query("queryPasswordByUsername", user.getPassword());
+        String encryptedPassword = user.getPassword();
+//        user = userDao.query(user);
         if (user != null) {
             session.setAttribute("user", user);
             return "redirect:/book/queryAll";

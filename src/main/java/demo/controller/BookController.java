@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Arrays;
+
 /**
  * Created by zhenya.1291813139.com
  * on 2017/7/14.
@@ -46,6 +48,15 @@ public class BookController extends BaseController {
     @RequestMapping("remove/{id}")
     private String remove(@PathVariable int id) {
         bookDao.remove(id);
+        return "redirect:/book/queryAll";
+    }
+
+    @RequestMapping("removeBooks")
+    private String remove(int[] ids){
+        System.out.println(Arrays.toString(ids));
+        for (int id : ids) {
+            bookDao.remove(id);
+        }
         return "redirect:/book/queryAll";
     }
 }

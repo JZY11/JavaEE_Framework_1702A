@@ -11,7 +11,7 @@ import java.util.List;
 public interface GenericDao<T> {// Model   Entity  Domain(域)
     void create(T t);
 
-    T query(T t);
+    T query(String statement, Object parameter);
 
     List<T> queryAll();
 
