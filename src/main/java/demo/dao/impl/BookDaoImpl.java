@@ -25,6 +25,11 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
+    public Book query(Book book) {
+        return null;
+    }
+
+    @Override
     public List<Book> queryAll() {
         return sqlSession.selectList("book.queryAll");
     }

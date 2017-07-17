@@ -2,7 +2,6 @@ package demo.dao.impl;
 
 import demo.dao.UserDao;
 import demo.model.User;
-import demo.util.MyBatisSession;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,11 +27,6 @@ public class UserDaoImpl implements UserDao {
         sqlSession.insert("user.create", user);
         //"user.create" 为user-mapper.xml中的namespace + id 实质就是一个sql语句
 //        }
-    }
-
-    @Override
-    public User signIn(User user) {
-        return null;
     }
 
     @Override
