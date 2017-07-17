@@ -31,9 +31,9 @@ public class BookController extends BaseController {
         return "redirect:/index.jsp";
     }
 
-    @RequestMapping("queryBookById/{id}")
-    private String queryBookById(@PathVariable int id){
-        session.setAttribute("book", bookDao.queryBookById(id));
+    @RequestMapping("queryById/{id}")
+    private String queryById(@PathVariable int id){
+        session.setAttribute("book", bookDao.queryById(id));
         return "redirect:/edit.jsp";
     }
 

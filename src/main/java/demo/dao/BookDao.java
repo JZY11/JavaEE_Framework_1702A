@@ -15,7 +15,7 @@ public interface BookDao {
 
     List<Book> queryAll();
 
-    Book queryBookById(int id);
+    Book queryById(int id);
 
     void modify(Book book);
 

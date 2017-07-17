@@ -30,8 +30,8 @@ public class BookDaoImpl implements BookDao{
     }
 
     @Override
-    public Book queryBookById(int id) {
-        return sqlSession.selectOne("book.queryBookById",id);
+    public Book queryById(int id) {
+        return sqlSession.selectOne("book.queryById",id);
     }
 
     @Override
