@@ -1,7 +1,9 @@
 package demo.service.impl;
 
+import demo.dao.GenericDao;
 import demo.service.GenericService;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,34 +11,45 @@ import java.util.List;
  * on 2017/7/18.
  * JavaEE_Framework_1702A.
  */
-public class GenericServiceImpl<T> implements GenericService<T>{
+public abstract class GenericServiceImpl<T extends Serializable> implements GenericService<T> {
+
+    GenericDao<T> genericDao;
+
+    public abstract void setGenericDao(GenericDao<T> genericDao);
+
+
     @Override
     public void create(T t) {
-
+        genericDao.create(t);
     }
 
     @Override
     public T query(String statement, Object parameter) {
-        return null;
+        return genericDao.query(statement,parameter);
     }
 
     @Override
     public List<T> queryAll() {
-        return null;
+        return genericDao.queryAll();
     }
 
     @Override
     public T queryById(int id) {
-        return null;
+        return genericDao.queryById(id);
     }
 
     @Override
     public void modify(T t) {
+        genericDao.modify(t);
+    }
 
+    @Override
+    public void modify(String statement, Object parameter) {
+        genericDao.modify(statement,parameter);
     }
 
     @Override
     public void remove(int id) {
-
+        genericDao.remove(id);
     }
 }

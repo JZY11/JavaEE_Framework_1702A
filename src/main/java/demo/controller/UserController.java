@@ -1,10 +1,7 @@
 package demo.controller;
 
-import demo.dao.UserDao;
 import demo.model.User;
-import demo.service.GenericService;
-import demo.util.MyBatisSession;
-import org.apache.ibatis.session.SqlSession;
+import demo.service.UserService;
 import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,12 +24,13 @@ public class UserController extends BaseController {
 
 
     //加入spring容器获取bean 需要两步：1需要在web-servlet中扫描。2需要在User Dao层接口的实现类中加类注解：@Repository
-    @Autowired // 自动装配
-    private UserDao userDao;
+//    @Autowired // 自动装配
+//    @Qualifier("userDaoImpl")// 确定是接口&域的哪个实现类，哪个bean
+//    private UserDao userDao;
 
 //加入spring容器获取bean 需要两步：1需要在web-servlet中扫描。2需要在User泛型服务层接口的实现类中加类注解：@Service
-//    @Autowired
-//    private GenericService genericService;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("create")
     private String create(User user) {
@@ -40,20 +38,20 @@ public class UserController extends BaseController {
         StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
         user.setPassword(encryptor.encryptPassword(user.getPassword()));
 
-        userDao.create(user);
+        userService.create(user);
         return "redirect:/default.jsp";
     }
 
     @RequestMapping("signIn")
     private String signIn(User user) {
         String plainPassword = user.getPassword();
-        user = userDao.query("queryPasswordByUsername", user.getUsername());
+        user = userService.query("queryPasswordByUsername", user.getUsername());
         if (user != null) {
 
             String encryptedPassword = user.getPassword();
             StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
             if (encryptor.checkPassword(plainPassword, encryptedPassword)) {
-                userDao.modify("updateLastTime",user.getId());
+                userService.modify("updateLastTime",user.getId());
                 session.setAttribute("user", user);
                 return "redirect:/book/queryAll";
             }

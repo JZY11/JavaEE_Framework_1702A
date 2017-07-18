@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     compile 'javax:javaee-api:7.0'
-    compile 'mysql:mysql-connector-java:5.1.42'
+    compile 'mysql:mysql-connector-java:5.1.42'//JDBC联结数据库
     compile 'jstl:jstl:1.2'
     compile 'org.json:json:20151123'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.5.3'
@@ -24,7 +24,7 @@ dependencies {
     compile 'org.springframework:spring-jdbc:4.3.9.RELEASE'
     compile 'org.mybatis:mybatis-spring:1.3.1'
     compile 'mysql:mysql-connector-java:5.1.42'//数据库驱动
-    compile 'commons-dbcp:commons-dbcp:1.4'//数据池
+    compile 'commons-dbcp:commons-dbcp:1.4'//数据池，在驱动并连接的这个过程中优化并解耦
     compile 'org.projectlombok:lombok:1.16.18'//数据库中添加一个字段，即模型类中添加一个域
 //    compile 'org.projectlombok:lombok:1.16.18'
 }

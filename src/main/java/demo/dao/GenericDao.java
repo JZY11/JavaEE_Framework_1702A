@@ -1,5 +1,6 @@
 package demo.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -8,7 +9,7 @@ import java.util.List;
  * JavaEE_Framework_1702A.
  */
 // 泛型接口
-public interface GenericDao<T> {// Model   Entity  Domain(域)
+public interface GenericDao<T extends Serializable> {// Model   Entity  Domain(域)
     void create(T t);
 
     T query(String statement, Object parameter);

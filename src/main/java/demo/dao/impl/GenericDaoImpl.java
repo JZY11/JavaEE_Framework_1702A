@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * on 2017/7/17.
  * JavaEE_Framework_1702A.
  */
-public class GenericDaoImpl<T> implements GenericDao<T> {
+public abstract class GenericDaoImpl<T extends Serializable>implements GenericDao<T>{
 
     private String namespace;
 
