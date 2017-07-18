@@ -53,6 +53,11 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
     }
 
     @Override
+    public void modify(String statement,Object parameter) {
+        sqlSession.update(namespace.concat(".").concat(statement),parameter);
+    }
+
+    @Override
     public void remove(int id) {
         sqlSession.delete(namespace.concat(".remove"), id);
     }

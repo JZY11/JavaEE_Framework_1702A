@@ -15,9 +15,13 @@ public interface GenericDao<T> {// Model   Entity  Domain(域)
 
     List<T> queryAll();
 
+//    List<T> queryList(String statement,Object parameter)
+
     T queryById(int id);
 
     void modify(T t);
+
+    void modify(String statement,Object parameter);
 
     void remove(int id);
 }

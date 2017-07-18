@@ -23,14 +23,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller//自动加入spring容器使其成为一个bean
 @RequestMapping("user")
-public class UserController extends BaseController{
+public class UserController extends BaseController {
 
 
+    //加入spring容器获取bean 需要两步：1需要在web-servlet中扫描。2需要在User Dao层接口的实现类中加类注解：@Repository
     @Autowired // 自动装配
     private UserDao userDao;
 
-    @Autowired
-    private GenericService genericService;
+//加入spring容器获取bean 需要两步：1需要在web-servlet中扫描。2需要在User泛型服务层接口的实现类中加类注解：@Service
+//    @Autowired
+//    private GenericService genericService;
 
     @RequestMapping("create")
     private String create(User user) {
@@ -46,11 +48,15 @@ public class UserController extends BaseController{
     private String signIn(User user) {
         String plainPassword = user.getPassword();
         user = userDao.query("queryPasswordByUsername", user.getUsername());
-        String encryptedPassword = user.getPassword();
-        StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
-        if (encryptor.checkPassword(plainPassword,encryptedPassword)) {
-            session.setAttribute("user", user);
-            return "redirect:/book/queryAll";
+        if (user != null) {
+
+            String encryptedPassword = user.getPassword();
+            StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
+            if (encryptor.checkPassword(plainPassword, encryptedPassword)) {
+                userDao.modify("updateLastTime",user.getId());
+                session.setAttribute("user", user);
+                return "redirect:/book/queryAll";
+            }
         }
         request.setAttribute("message", "用户名或密码错误");
         return "/default.jsp";
@@ -61,15 +67,6 @@ public class UserController extends BaseController{
         session.invalidate();
         return "redirect:/default.jsp";
     }
-
-
-
-
-
-
-
-
-
 
 
 //    private UserDao userDao;
