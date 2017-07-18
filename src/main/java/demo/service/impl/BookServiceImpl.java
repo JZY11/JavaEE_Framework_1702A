@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class BookServiceImpl extends GenericServiceImpl<Book> implements BookService {
+
     @Override
     @Autowired
     @Qualifier("bookDaoImpl")

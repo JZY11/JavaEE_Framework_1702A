@@ -2,7 +2,6 @@ package demo.controller;
 
 import demo.model.User;
 import demo.service.UserService;
-import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,6 +42,9 @@ public class UserController extends BaseController {
 
     @RequestMapping("signIn")
     private String signIn(User user) {
+
+        user = userService.signIn(user);
+
 //        String plainPassword = user.getPassword();
 //        user = userService.query("queryPasswordByUsername", user.getUsername());
         if (user != null) {

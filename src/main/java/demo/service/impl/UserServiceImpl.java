@@ -48,6 +48,7 @@ public class UserServiceImpl extends GenericServiceImpl<User> implements UserSer
 //            StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
             user.setPassword(encryptor.encryptPassword(user.getPassword()));
             genericDao.create(user);
+            return true;
         }
         return false;
     }

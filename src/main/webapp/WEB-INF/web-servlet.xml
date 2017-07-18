@@ -14,5 +14,5 @@
     <mvc:annotation-driven/>
 
     <context:component-scan base-package="demo.controller demo.dao.impl demo.service.impl"/>
-
+        <!--把一系列的bean加入spring容器-->
 </beans>

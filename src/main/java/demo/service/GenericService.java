@@ -9,6 +9,7 @@ import java.util.List;
  * JavaEE_Framework_1702A.
  */
 public interface GenericService<T extends Serializable> {
+
     void create(T t);
 
     T query(String statement, Object parameter);

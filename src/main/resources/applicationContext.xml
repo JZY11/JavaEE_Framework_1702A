@@ -13,12 +13,13 @@
 
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
-    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-        <!--<property name="driverClassName" value="${jdbc_driverClassName}"/>-->
-        <!--<property name="url" value="${jdbc_url}"/>-->
-        <!--<property name="username" value="${jdbc_username}"/>-->
-        <!--<property name="password" value="${jdbc_password}"/>-->
-    <!--</bean>   在驱动并连接的这个过程中优化并解耦-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc_driverClassName}"/>
+        <property name="url" value="${jdbc_url}"/>
+        <property name="username" value="${jdbc_username}"/>
+        <property name="password" value="${jdbc_password}"/>
+    </bean>
+    <!--在驱动并连接的这个过程中优化并解耦-->
 
     <bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="${jdbc_driverClassName}"/>
