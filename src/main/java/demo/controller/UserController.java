@@ -41,10 +41,10 @@ public class UserController extends BaseController{
     @RequestMapping("signIn")
     private String signIn(User user) {
         String plainPassword = user.getPassword();
-        user = userDao.query("queryPasswordByUsername", user.getPassword());
+        user = userDao.query("queryPasswordByUsername", user.getUsername());
         String encryptedPassword = user.getPassword();
-//        user = userDao.query(user);
-        if (user != null) {
+        StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
+        if (encryptor.checkPassword(plainPassword,encryptedPassword)) {
             session.setAttribute("user", user);
             return "redirect:/book/queryAll";
         }

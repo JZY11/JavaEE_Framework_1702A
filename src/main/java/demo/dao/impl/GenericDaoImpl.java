@@ -17,16 +17,15 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
 
     private String namespace;
 
+    @Autowired
+    private SqlSession sqlSession;
+
     public GenericDaoImpl() {
         ParameterizedType parameterizedType = (ParameterizedType) getClass().getGenericSuperclass();
         Class clazz = (Class) parameterizedType.getActualTypeArguments()[0];
 //        namespace = clazz.getSimpleName().toLowerCase();
         namespace = StringUtils.uncapitalize(clazz.getSimpleName());
     }
-
-    @Autowired
-    private SqlSession sqlSession;
-
 
     @Override
     public void create(T t) {

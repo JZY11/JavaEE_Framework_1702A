@@ -1,4 +1,4 @@
-package demo.service;
+package demo.service1;
 
 import com.mysql.jdbc.Driver;
 import demo.model.User;

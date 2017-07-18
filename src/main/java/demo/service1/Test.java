@@ -1,4 +1,4 @@
-package demo.service;
+package demo.service1;
 
 import demo.model.User;
 import org.springframework.context.ApplicationContext;

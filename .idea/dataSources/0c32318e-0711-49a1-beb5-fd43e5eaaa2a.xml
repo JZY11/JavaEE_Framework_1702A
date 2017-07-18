@@ -338,15 +338,20 @@
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="91" parent="33" name="username">
+    <column id="91" parent="33" name="lastTime">
+      <Position>4</Position>
+      <Comment>用户最后一次登录时间</Comment>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="92" parent="33" name="username">
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="92" parent="33" name="PRIMARY">
+    <key id="93" parent="33" name="PRIMARY">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="93" parent="33" name="username">
+    <key id="94" parent="33" name="username">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>username</UnderlyingIndexName>
     </key>

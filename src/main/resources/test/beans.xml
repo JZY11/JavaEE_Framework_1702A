@@ -3,11 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="myBatis" class="demo.service.MyBatis"/>
-    <bean id="jdbc" class="demo.service.Jdbc"/>
-    <!--<bean id="hibernate" class="demo.service.Hibernate"/>-->
+    <bean id="myBatis" class="demo.service1.MyBatis"/>
+    <bean id="jdbc" class="demo.service1.Jdbc"/>
+    <!--<bean id="hibernate" class="demo.service11.Hibernate"/>-->
 
-    <bean id="userService" class="demo.service.UserService">
+    <bean id="userService" class="demo.service1.UserService">
         <!--<property name="interfaceTest" ref="myBatis"/>-->
         <property name="interfaceTest" ref="jdbc"/>
     </bean>

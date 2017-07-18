@@ -15,6 +15,12 @@
         WHERE username = #{username} AND password = #{password}
     </select>
 
+    <select id="queryPasswordByUsername" parameterType="String" resultType="user">
+        SELECT *
+        FROM db_test.user
+        WHERE username = #{username}
+    </select>
+
 
     <!--<update id="update" parameterType="user">&lt;!&ndash;参数类型可以为字符串，但id的值必须为定值&ndash;&gt;-->
         <!--UPDATE db_test.user-->
