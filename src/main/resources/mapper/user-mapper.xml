@@ -5,7 +5,8 @@
 
 <mapper namespace="user">
     <insert id="create" parameterType="user" useGeneratedKeys="true" keyProperty="id">
-    INSERT INTO db_test.user VALUE (NULL ,#{username},#{password})
+#     INSERT INTO db_test.user VALUE (NULL ,#{username},#{password})
+    INSERT INTO db_test.user(username, password) VALUE (#{username},#{password})
     </insert>
 
 
@@ -21,6 +22,19 @@
         WHERE username = #{username}
     </select>
 
+    <update id="modify" parameterType="">
+        UPDATE db_test.user
+                SET username = #{username},
+                    password = #{password},
+                    lastTime = #{lastTime}
+        WHERE id = #{id}
+    </update>
+
+    <update id="updateLastTime" parameterType="">
+        UPDATE db_test.user
+                SET lastTime = now()
+        WHERE id = #{id}
+    </update>
 
     <!--<update id="update" parameterType="user">&lt;!&ndash;参数类型可以为字符串，但id的值必须为定值&ndash;&gt;-->
         <!--UPDATE db_test.user-->

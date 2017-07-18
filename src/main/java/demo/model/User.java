@@ -1,6 +1,9 @@
 package demo.model;
 
 import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -9,6 +12,9 @@ import java.io.Serializable;
  * on 2017/7/4.
  * JavaEE_Framework_1702A.
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class User implements Serializable {
     private Integer id;
     private String username;
