@@ -17,6 +17,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl extends GenericServiceImpl<User> implements UserService {
 
+    @Autowired
+    private StrongPasswordEncryptor encryptor;
+
     @Override
     @Autowired
     @Qualifier("userDaoImpl")
@@ -26,7 +29,7 @@ public class UserServiceImpl extends GenericServiceImpl<User> implements UserSer
 
     @Override
     public User signIn(User user) {
-        StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
+//        StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
         String plainPassword = user.getPassword();
         user = genericDao.query("queryByUsername",user.getUsername());
         if (user != null) {
@@ -41,6 +44,11 @@ public class UserServiceImpl extends GenericServiceImpl<User> implements UserSer
 
     @Override
     public boolean signUp(User user) {
+        if (genericDao.query("queryByUsername", user.getUsername()) == null) {
+//            StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
+            user.setPassword(encryptor.encryptPassword(user.getPassword()));
+            genericDao.create(user);
+        }
         return false;
     }
 }
