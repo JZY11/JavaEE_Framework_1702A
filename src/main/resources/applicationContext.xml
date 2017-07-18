@@ -39,4 +39,5 @@
 
     <!--sqlSessionFactory依赖于数据源(dataSource&dbcp),而sqlSession又依赖于sqlSessionFactory-->
 
+    <bean id="encryptor" class="org.jasypt.util.password.StrongPasswordEncryptor"/><!--因为类StrongPasswordEncryptor有默认无参构造方法，所以bean不用打开-->
 </beans>

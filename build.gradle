@@ -16,7 +16,7 @@ dependencies {
     compile 'org.json:json:20151123'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.5.3'
     compile 'com.alibaba:fastjson:1.2.7'//解析JSON数据
-    compile 'org.jasypt:jasypt:1.9.2'
+    compile 'org.jasypt:jasypt:1.9.2'// 加密
     compile 'com.github.penggle:kaptcha:2.3.2'
     compile 'org.mybatis:mybatis:3.4.4'
     compile 'org.springframework:spring-context:4.3.9.RELEASE'

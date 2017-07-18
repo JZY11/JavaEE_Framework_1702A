@@ -11,10 +11,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Test {
     public static void main(String[] args) {
-        ApplicationContext beans = new ClassPathXmlApplicationContext("test/beans.xml");
-        UserService userService = (UserService) beans.getBean("userService");
-
-        User user = new User("new user","new password");
-        userService.createUser(user);
+//        ApplicationContext beans = new ClassPathXmlApplicationContext("test/beans.xml");
+//        UserService userService = (UserService) beans.getBean("userService");
+//
+//        User user = new User("new user","new password");
+//        userService.createUser(user);
     }
 }

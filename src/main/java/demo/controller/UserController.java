@@ -32,15 +32,8 @@ public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("create")
-    private String create(User user) {
+//    @RequestMapping("signUp")
 
-        StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
-        user.setPassword(encryptor.encryptPassword(user.getPassword()));
-
-        userService.create(user);
-        return "redirect:/default.jsp";
-    }
 
     @RequestMapping("signIn")
     private String signIn(User user) {
