@@ -2,6 +2,7 @@ package demo.controller;
 
 import demo.dao.UserDao;
 import demo.model.User;
+import demo.service.GenericService;
 import demo.util.MyBatisSession;
 import org.apache.ibatis.session.SqlSession;
 import org.jasypt.util.password.StrongPasswordEncryptor;
@@ -27,6 +28,9 @@ public class UserController extends BaseController{
 
     @Autowired // 自动装配
     private UserDao userDao;
+
+    @Autowired
+    private GenericService genericService;
 
     @RequestMapping("create")
     private String create(User user) {
