@@ -19,7 +19,7 @@ import java.util.List;
    底层具体用什么(Mybatis还是Hibernate)GenericDao并不关心，GenericDao只是一个接口
    将模型类定义为泛型T
  */
-public abstract class GenericDaoImpl<T extends Serializable,ID extends Number>implements GenericDao<T>{
+public class GenericDaoImpl<T extends Serializable,ID extends Number> implements GenericDao<T, ID>{
 
     private String namespace;
 

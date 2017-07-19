@@ -11,7 +11,7 @@ import java.util.List;
  * on 2017/7/18.
  * JavaEE_Framework_1702A.
  */
-public abstract class GenericServiceImpl<T extends Serializable,ID extends Number> implements GenericService<T> {
+public abstract class GenericServiceImpl<T extends Serializable,ID extends Number> implements GenericService<T, ID> {
 
     GenericDao<T, ID> genericDao;
 

@@ -12,7 +12,7 @@ import java.util.List;
    ###通用的###数据库操作方法
  */
 // 泛型Dao接口里面定义了一些通用的数据库操纵方法，这个接口是为了重构，因为是接口所以只是声明
-public interface GenericDao<T extends Serializable,ID extends Number> {// Model   Entity  Domain(域)
+public interface GenericDao<T extends Serializable, ID extends Number> {// Model   Entity  Domain(域)
     void create(T t);
 //create表示向数据库插入一条记录或是创建一个实例
 
