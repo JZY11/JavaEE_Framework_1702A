@@ -24,7 +24,7 @@ public class UserServiceImpl extends GenericServiceImpl<User> implements UserSer
     @Autowired
     @Qualifier("userDaoImpl")
     public void setGenericDao(GenericDao<User> genericDao) {
-        super.genericDao = genericDao;
+        super.genericDao = genericDao;//genericDao已经成为了自动装配进来的userDaoImpl的一个实例，这样父类genericDao就有实例
     }
 
     @Override

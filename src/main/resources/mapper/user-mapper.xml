@@ -22,7 +22,7 @@
         WHERE username = #{username}
     </select>
 
-    <update id="modify" parameterType="">
+    <update id="modify" parameterType="user">
         UPDATE db_test.user
                 SET username = #{username},
                     password = #{password},

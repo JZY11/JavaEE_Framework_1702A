@@ -17,7 +17,7 @@ public class BookServiceImpl extends GenericServiceImpl<Book> implements BookSer
 
     @Override
     @Autowired
-    @Qualifier("bookDaoImpl")
+    @Qualifier("bookDaoImpl")//指定一下具体的是哪个实现类
     public void setGenericDao(GenericDao<Book> genericDao) {
         super.genericDao = genericDao;
     }

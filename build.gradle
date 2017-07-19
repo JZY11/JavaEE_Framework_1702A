@@ -24,7 +24,9 @@ dependencies {
     compile 'org.springframework:spring-jdbc:4.3.9.RELEASE'
     compile 'org.mybatis:mybatis-spring:1.3.1'
     compile 'mysql:mysql-connector-java:5.1.42'//数据库驱动
-    compile 'commons-dbcp:commons-dbcp:1.4'//数据池，在驱动并连接的这个过程中优化并解耦
+    compile 'commons-dbcp:commons-dbcp:1.4'//dbcp是Apache提供的一个第三方数据源，在驱动并连接的这个过程中优化并解耦
     compile 'org.projectlombok:lombok:1.16.18'//数据库中添加一个字段，即模型类中添加一个域
 //    compile 'org.projectlombok:lombok:1.16.18'
+    compile 'org.freemarker:freemarker:2.3.26-incubating'
+    compile 'org.springframework:spring-context-support:4.3.9.RELEASE'
 }

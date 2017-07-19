@@ -13,19 +13,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 /*
+   接收jsp页面提交的请求(default.jsp)，找到匹配的方法传入参数user，调用user的set方法将两个域
+   username和password的是set进来，登录时就有了用户提交的明文密码和用户名
+
     userController依赖于抽象，而UserDaoImpl为接口 UserDao的唯一实现类，所以UserController依赖于UserDaoImpl
 
+    ** 自己写的bean一般是注解的     别人的bean一般是注册的
  */
 
 @Controller//自动加入spring容器使其成为一个bean
-@RequestMapping("user")
+@RequestMapping("user")//类级别注解
 public class UserController extends BaseController {
 
 
     //加入spring容器获取bean 需要两步：1需要在web-servlet中扫描。2需要在User Dao层接口的实现类中加类注解：@Repository
 //    @Autowired // 自动装配
 //    @Qualifier("userDaoImpl")// 确定是接口&域的哪个实现类，哪个bean
-//    private UserDao userDao;
+//    private UserDao userDao;//UserController依赖于UserDao,将来在UserController实例化的时候先将userDao实例化
+    //为其依赖注入一个接口UserDao的实现类的实例
 
 //加入spring容器获取bean 需要两步：1需要在web-servlet中扫描。2需要在User泛型服务层接口的实现类中加类注解：@Service
     @Autowired
@@ -41,22 +46,24 @@ public class UserController extends BaseController {
     }
 
     @RequestMapping("signIn")
-    private String signIn(User user) {
+    private String signIn(User user) {//登录就是调用的query方法
 
         user = userService.signIn(user);
 
-//        String plainPassword = user.getPassword();
+//        String plainPassword = user.getPassword();先取出明文密码
 //        user = userService.query("queryPasswordByUsername", user.getUsername());
-        if (user != null) {
+        //queryPasswordByUsername为mapper(映射文件)中定义的一个id
+        if (user != null) {//若不对user判断，运行会报空指针异常
 
-//            String encryptedPassword = user.getPassword();
+//            String encryptedPassword = user.getPassword();取出加密后的密码
 //            StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
 //            if (encryptor.checkPassword(plainPassword, encryptedPassword)) {
 //                userService.modify("updateLastTime",user.getId());
 //            }
                 session.setAttribute("user", user);
-                return "redirect:/book/queryAll";
+                return "redirect:/book/queryAll";//登录成功会发出一个新的请求，查询所有的图书，马上就进入BookController的queryAll方法
         }
+        //若user为空null，给一提示
         request.setAttribute("message", "用户名或密码错误");
         return "/default.jsp";
     }
