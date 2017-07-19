@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  * JavaEE_Framework_1702A.
  */
 @Service
-public class UserServiceImpl extends GenericServiceImpl<User> implements UserService {
+public class UserServiceImpl extends GenericServiceImpl<User,Integer> implements UserService {
 
     @Autowired
     private StrongPasswordEncryptor encryptor;
@@ -23,7 +23,7 @@ public class UserServiceImpl extends GenericServiceImpl<User> implements UserSer
     @Override
     @Autowired
     @Qualifier("userDaoImpl")
-    public void setGenericDao(GenericDao<User> genericDao) {
+    public void setGenericDao(GenericDao<User,Integer> genericDao) {
         super.genericDao = genericDao;//genericDao已经成为了自动装配进来的userDaoImpl的一个实例，这样父类genericDao就有实例
     }
 

@@ -13,12 +13,12 @@ import org.springframework.stereotype.Service;
  * JavaEE_Framework_1702A.
  */
 @Service
-public class BookServiceImpl extends GenericServiceImpl<Book> implements BookService {
+public class BookServiceImpl extends GenericServiceImpl<Book,Integer> implements BookService {
 
     @Override
     @Autowired
     @Qualifier("bookDaoImpl")//指定一下具体的是哪个实现类
-    public void setGenericDao(GenericDao<Book> genericDao) {
+    public void setGenericDao(GenericDao<Book,Integer> genericDao) {
         super.genericDao = genericDao;
     }
 }
