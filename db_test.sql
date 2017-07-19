@@ -10,6 +10,16 @@ CREATE TABLE db_test.user (
  lastTime DATETIME COMMENT '用户最后一次登录时间'
 )COMMENT '用户表';
 
+# student table
+DROP TABLE IF EXISTS db_test.student;
+CREATE TABLE db_test.student (
+ id       INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT 'ID PK',
+ name VARCHAR(255) NOT NULL UNIQUE  COMMENT '学生姓名',
+ age INT COMMENT '年龄',
+ height DOUBLE COMMENT '身高',
+ married VARCHAR(255) COMMENT '婚否'
+)COMMENT '用户表';
+
 DROP TABLE IF EXISTS db_test.book;
 CREATE TABLE db_test.book (
  id       INT UNSIGNED AUTO_INCREMENT PRIMARY KEY COMMENT 'ID PK',
@@ -24,6 +34,9 @@ FROM db_test.user;
 
 SELECT *
 FROM db_test.book;
+
+SELECT *
+FROM db_test.student;
 
 TRUNCATE db_test.user;
 

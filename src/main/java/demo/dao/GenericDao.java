@@ -12,7 +12,7 @@ import java.util.List;
    ###通用的###数据库操作方法
  */
 // 泛型Dao接口里面定义了一些通用的数据库操纵方法，这个接口是为了重构，因为是接口所以只是声明
-public interface GenericDao<T extends Serializable> {// Model   Entity  Domain(域)
+public interface GenericDao<T extends Serializable,ID extends Number> {// Model   Entity  Domain(域)
     void create(T t);
 //create表示向数据库插入一条记录或是创建一个实例
 
@@ -22,13 +22,17 @@ public interface GenericDao<T extends Serializable> {// Model   Entity  Domain(�
     List<T> queryAll();
 //返回的是关于一个模型类的集合，就是List接口下的某一个实现类
 
+    List<T> list(int page);
+
 //    List<T> queryList(String statement,Object parameter)
 
-    T queryById(int id);//只是通过id来查询，返回一个T
+//    T queryById(int id);//只是通过id来查询，返回一个T
+    T queryById(ID id);
 
     void modify(T t);//根据模型类T来修改
 
     void modify(String statement,Object parameter);
 
-    void remove(int id);
+//    void remove(int id);
+    void remove(ID id);
 }

@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Book implements Serializable {
+public class Book extends BaseModel {
     private Integer id;
     private String title;
     private String author;
