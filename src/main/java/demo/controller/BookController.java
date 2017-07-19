@@ -23,7 +23,7 @@ public class BookController extends BaseController {
 //    private BookDao bookDao;
     private BookService bookService;
 
-    @RequestMapping("create")
+    @RequestMapping(value = "create")
     private String create(Book book){
         bookService.create(book);
         return "redirect:/book/queryAll";
