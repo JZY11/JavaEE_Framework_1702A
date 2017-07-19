@@ -27,5 +27,7 @@ FROM db_test.book;
 
 TRUNCATE db_test.user;
 
-TRUNCATE db_test.book
+TRUNCATE db_test.book;
+
+desc db_test.user;
 

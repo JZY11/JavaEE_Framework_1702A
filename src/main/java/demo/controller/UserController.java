@@ -38,6 +38,7 @@ public class UserController extends BaseController {
 
     @RequestMapping("signUp")
     private String signUp(User user){
+        System.out.println(user);
         if (userService.signUp(user)) {
             return "redirect:/default.jsp";
         }
