@@ -10,6 +10,7 @@ import java.util.List;
  * Created by zhenya.1291813139.com
  * on 2017/7/18.
  * JavaEE_Framework_1702A.
+ *
  */
 public abstract class GenericServiceImpl<T extends Serializable,ID extends Number> implements GenericService<T, ID> {
 

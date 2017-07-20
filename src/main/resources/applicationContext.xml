@@ -11,6 +11,7 @@
       http://www.springframework.org/schema/mvc
       http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <!--导入属性配置文件-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <!--共配置了5个bean：1：数据源(2个bean，数据源可任意切换)  2：sqlSessionFactory  3：sqlSession  4：encryptor-->
