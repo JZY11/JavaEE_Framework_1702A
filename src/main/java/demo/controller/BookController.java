@@ -19,9 +19,13 @@ import java.util.Arrays;
 @RequestMapping("book")
 public class BookController extends BaseController {
 
+    //    private BookDao bookDao;
+    private final BookService bookService;
+
     @Autowired
-//    private BookDao bookDao;
-    private BookService bookService;
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
+    }
 
     @RequestMapping(value = "create")
     private String create(Book book){

@@ -11,7 +11,7 @@
     </#list>
         )
         VALUES (
-    <#list columns?keys as key>
+        <#list columns?keys as key>
     ${'#'}{${columns[key]}}<#if key_has_next>, </#if>
     </#list>
         );

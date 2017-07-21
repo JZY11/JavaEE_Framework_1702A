@@ -28,7 +28,7 @@ public class UserServiceImpl extends GenericServiceImpl<User,Integer> implements
     }
 
     @Override
-    public User signIn(User user) {
+    public User signIn(User user) {// 登录包括两步通用的方法query  modify
 //        StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
         String plainPassword = user.getPassword();
         user = genericDao.query("queryByUsername",user.getUsername());
@@ -43,7 +43,7 @@ public class UserServiceImpl extends GenericServiceImpl<User,Integer> implements
     }
 
     @Override
-    public boolean signUp(User user) {
+    public boolean signUp(User user) {// 注册包括一步通用的方法
         if (genericDao.query("queryByUsername", user.getUsername()) == null) {
 //            StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
             user.setPassword(encryptor.encryptPassword(user.getPassword()));

@@ -27,8 +27,8 @@ dependencies {
     compile 'commons-dbcp:commons-dbcp:1.4'//dbcp是Apache提供的一个第三方数据源，在驱动并连接的这个过程中优化并解耦
     compile 'org.projectlombok:lombok:1.16.18'//数据库中添加一个字段，即模型类中添加一个域
 //    compile 'org.projectlombok:lombok:1.16.18'
-    compile 'org.freemarker:freemarker:2.3.26-incubating'
-    compile 'org.springframework:spring-context-support:4.3.9.RELEASE'
+    compile 'org.freemarker:freemarker:2.3.26-incubating'//模板技术本身依赖的库
+    compile 'org.springframework:spring-context-support:4.3.9.RELEASE'//spring对模板技术提供的技术支持的库
     compile 'org.apache.velocity:velocity:1.7'
     compile 'org.slf4j:slf4j-log4j12:1.7.21'
 }

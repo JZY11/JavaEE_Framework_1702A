@@ -19,18 +19,29 @@ import java.util.Map;
  */
 public class FreemarkerTest {
     public static void main(String[] args) throws IOException, TemplateException {
+        //获取spring容器这么一个变量
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        //从容器中取得freeMarkerConfig这个bean
+        //1.freemarker
         FreeMarkerConfig freeMarkerConfig = (FreeMarkerConfig) applicationContext.getBean("freemarker");
 
-//        String model = "Student";
+        String model = "Student";
 
-        Template template = freeMarkerConfig.getConfiguration().getTemplate("test.ftl");
+        //2.模板
+        Template template = freeMarkerConfig.getConfiguration().getTemplate("dao.ftl");
+        //3.Java对象(Map<>对象，存放键值对)
         Map<String, String> map = new HashMap<>();
-        map.put("name","Freemarker");
-//        map.put("model",model);
-//        Writer writer = new FileWriter("src/main/java/demo/dao/" + model + "Dao.java");
-        Writer writer = new FileWriter("Hello.html");
-        template.process(map,writer);
+//        map.put("name", "world");
+        map.put("model",model);
+
+        //4.准备好一个输出的内容
+//        Writer writer = new FileWriter("test.html");
+        Writer writer = new FileWriter("src/main/java/demo/dao/" + model + "Dao.java");
+        //4.准备好一个输出的内容
+//        Writer writer = new FileWriter("Hello.html");
+
+        //5.最后一步操作，生成结果
+        template.process(map, writer);//FreeMarker Processing...
 
 
 

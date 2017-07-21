@@ -14,6 +14,7 @@ import java.util.List;
  */
 public abstract class GenericServiceImpl<T extends Serializable,ID extends Number> implements GenericService<T, ID> {
 
+    //GenericServiceImpl依赖的是Dao的一个接口
     GenericDao<T, ID> genericDao;
 
     public abstract void setGenericDao(GenericDao<T, ID> genericDao);

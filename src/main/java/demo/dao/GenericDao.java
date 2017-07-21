@@ -9,7 +9,11 @@ import java.util.List;
  * JavaEE_Framework_1702A.
  */
 /*
-   ###通用的###数据库操作方法
+   ###通用的###数据库操作方法 ，这里面看不出任何的方法跟具体业务逻辑有关系
+
+   这里面首先可以调用底层的通用的方法，但是某一些模块有自己专有的业务逻辑的话
+   我们把它下放到UserService这个层次
+
  */
 // 泛型Dao接口里面定义了一些通用的数据库操纵方法，这个接口是为了重构，因为是接口所以只是声明
 public interface GenericDao<T extends Serializable, ID extends Number> {// Model   Entity  Domain(域)
