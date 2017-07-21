@@ -18,7 +18,13 @@ CREATE TABLE db_test.student (
  age INT COMMENT '年龄',
  height DOUBLE COMMENT '身高',
  married VARCHAR(255) COMMENT '婚否'
-)COMMENT '用户表';
+)COMMENT '学生表';
+
+DROP TABLE IF EXISTS db_test.demo;
+CREATE TABLE db_test.demo(
+ id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'ID PK',
+ name VARCHAR(255) COMMENT '姓名'
+)COMMENT '测试表';
 
 DROP TABLE IF EXISTS db_test.book;
 CREATE TABLE db_test.book (
@@ -34,6 +40,9 @@ FROM db_test.user;
 
 SELECT *
 FROM db_test.book;
+
+SELECT *
+FROM db_test.demo;
 
 SELECT *
 FROM db_test.student;
