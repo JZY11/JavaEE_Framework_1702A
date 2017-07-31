@@ -2,6 +2,7 @@ package demo.service.impl;
 
 import demo.dao.GenericDao;
 import demo.service.GenericService;
+import demo.util.Pagination;
 
 import java.io.Serializable;
 import java.util.List;
@@ -31,13 +32,13 @@ public abstract class GenericServiceImpl<T extends Serializable,ID extends Numbe
     }
 
     @Override
-    public List<T> queryAll() {
-        return genericDao.queryAll();
+    public Pagination<T> queryAll(int currentPage) {
+        return genericDao.queryAll(currentPage);
     }
 
     @Override
-    public List<T> list(int page) {
-        return genericDao.list(page);
+    public Pagination<T> query(String statement, Object parameter, int currentPage) {
+        return genericDao.query(statement, parameter, currentPage);
     }
 
     @Override

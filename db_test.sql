@@ -58,3 +58,8 @@ TRUNCATE db_test.book;
 
 desc db_test.user;
 
+SELECT *
+FROM db_test.demo;
+
+INSERT INTO db_test.demo VALUES (NULL, 'name...');
+

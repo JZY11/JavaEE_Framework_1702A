@@ -1,5 +1,7 @@
 package demo.service;
 
+import demo.util.Pagination;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,13 +16,13 @@ public interface GenericService<T extends Serializable,ID extends Number> {
 
     T query(String statement, Object parameter);
 
-    List<T> queryAll();
 
-    //    List<T> queryList(String statement, Object parameter);
+    Pagination<T> queryAll(int currentPage);
+
+    Pagination<T> query(String statement, Object parameter, int currentPage);
+
 
     T queryById(ID id);
-
-    List<T> list(int page);
 
     void modify(T t);
 

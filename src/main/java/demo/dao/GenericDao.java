@@ -1,5 +1,7 @@
 package demo.dao;
 
+import demo.util.Pagination;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -26,8 +28,13 @@ public interface GenericDao<T extends Serializable, ID extends Number> {// Model
 //    List<T> queryAll();
 //返回的是关于一个模型类的集合，就是List接口下的某一个实现类
 
+    Pagination<T> queryAll(int currentPage);//对全部的查询结果进行分页
 
-    List<T> list(int page);
+
+    Pagination<T> query(String statement, Object parameter, int currrentPage);
+    //  对含有语句、参数、当前页等的参数下的查询结果进行分页
+
+//    List<T> list(int page);
 
 //    List<T> queryList(String statement,Object parameter)
 

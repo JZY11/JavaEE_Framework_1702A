@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
  * on 2017/7/14.
  * JavaEE_Framework_1702A.
  */
-@Repository
+@Repository// ** 注解
 public class BookDaoImpl extends GenericDaoImpl<Book,Integer> implements BookDao{
 }
