@@ -1,6 +1,5 @@
 package demo.controller;
 
-import demo.dao.BookDao;
 import demo.model.Book;
 import demo.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ import java.util.Arrays;
  * on 2017/7/14.
  * JavaEE_Framework_1702A.
  */
-@Controller
+@Controller// 控制器类的注解
 @RequestMapping("book")
 public class BookController extends BaseController {
 
@@ -33,14 +32,19 @@ public class BookController extends BaseController {
         return "redirect:/book/queryAll";
     }
 
-    @RequestMapping("queryAll")
-    private String queryAll() {
-        session.setAttribute("books", bookService.queryAll());
+    @RequestMapping("queryAll/{currentPage}")
+    private String queryAll(@PathVariable int currentPage) {
+        session.setAttribute("pagination", bookService.queryAll(currentPage));
         return "redirect:/index.jsp";
     }
 
+    @RequestMapping("queryAll")
+    private String queryAll() {
+        return queryAll(1);
+    }
+
     @RequestMapping("queryById/{id}")
-    private String queryById(@PathVariable int id){
+    private String queryById(@PathVariable int id) {
         session.setAttribute("book", bookService.queryById(id));
         return "redirect:/edit.jsp";
     }
@@ -58,7 +62,7 @@ public class BookController extends BaseController {
     }
 
     @RequestMapping("removeBooks")
-    private String remove(int[] ids){
+    private String remove(int[] ids) {
         System.out.println(Arrays.toString(ids));
         for (int id : ids) {
             bookService.remove(id);

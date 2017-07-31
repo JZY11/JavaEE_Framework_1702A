@@ -23,8 +23,9 @@ public interface GenericDao<T extends Serializable, ID extends Number> {// Model
     T query(String statement, Object parameter);//可指定不同的语句，传入不同的参数
 //可返回一个实例或者没有查到null
 
-    List<T> queryAll();
+//    List<T> queryAll();
 //返回的是关于一个模型类的集合，就是List接口下的某一个实现类
+
 
     List<T> list(int page);
 

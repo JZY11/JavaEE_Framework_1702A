@@ -31,7 +31,7 @@ public class GenericDaoImpl<T extends Serializable,ID extends Number> implements
         ParameterizedType parameterizedType = (ParameterizedType) getClass().getGenericSuperclass();
         Class clazz = (Class) parameterizedType.getActualTypeArguments()[0];
 //        namespace = clazz.getSimpleName().toLowerCase();
-        namespace = StringUtils.uncapitalize(clazz.getSimpleName());
+        namespace = StringUtils.uncapitalize(clazz.getSimpleName());//通过反射将首字母变为小写
     }
 
     @Override

@@ -23,7 +23,7 @@ CREATE TABLE db_test.student (
 DROP TABLE IF EXISTS db_test.demo;
 CREATE TABLE db_test.demo(
  id INT AUTO_INCREMENT PRIMARY KEY COMMENT 'ID PK',
- name VARCHAR(255) COMMENT '姓名'
+ name VARCHAR(255) NOT NULL UNIQUE COMMENT '姓名'
 )COMMENT '测试表';
 
 DROP TABLE IF EXISTS db_test.book;
@@ -41,8 +41,13 @@ FROM db_test.user;
 SELECT *
 FROM db_test.book;
 
+SELECT count(*)
+FROM db_test.book;
+
 SELECT *
 FROM db_test.demo;
+
+INSERT INTO db_test.book VALUES (NULL ,'title...','author...','2017-01-01','123.45');
 
 SELECT *
 FROM db_test.student;

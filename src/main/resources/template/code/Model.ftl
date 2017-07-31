@@ -1,4 +1,4 @@
-package <#if package!="">${package}.</#if>model;
+package ${package}model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
